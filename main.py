@@ -13,7 +13,11 @@ def getDefinition(word):
 
 def translate(word):
     if word in data:
-            return (getDefinition(word))
+        return (getDefinition(word))
+    elif (word.title() in data):
+        return (getDefinition(word.title()))
+    elif (word.upper() in data):
+        return (getDefinition(word.upper()))
     else:
         closestMatch = difflib.get_close_matches(word, data.keys(), 1, .7)
         if (len(closestMatch) > 0):
